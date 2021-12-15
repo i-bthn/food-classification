@@ -2,8 +2,7 @@ const express = require('express')
 const app = express();
 var FastText = require('node-fasttext');
 const cors = require('cors');
-var jsdom =require('text');
-var JSDOM =text.JSDOM;
+var el = document.body.querySelector("/fasttext/");
 let config = { 
   dim: 100,
   input: "train.txt",
@@ -29,7 +28,7 @@ app.get('/', (req, res) => {
 
 app.get('/fasttext/', function(req, res) {
   var statement = req.param('statement');
-  jsdom.innerHTML=res.send(getFastTextResults(statement));
+el.innerHTML=res.send(getFastTextResults(statement));
 });
 
 function getFastTextResults(statement) {
@@ -49,6 +48,7 @@ function getFastTextResults(statement) {
 
 	
 }
+
 
 app.listen(8000, () => {
   console.log('Listening on port 8000!')
